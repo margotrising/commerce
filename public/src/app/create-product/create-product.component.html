@@ -1,0 +1,19 @@
+<h2>New Product</h2>
+
+<form (submit)=handleSubmit()>
+        <!-- {{newProduct | json}} -->
+
+    <p *ngIf="errors.hasOwnProperty('name')" class="errors">{{ errors.name.message }}</p>
+    <p *ngIf="!name.valid" class="ng_errors">*Enter valid Product Name</p>
+    <p>Name: <input type="text" name="newProduct.name"  required minlength="3" [(ngModel)]="newProduct.name" #name="ngModel" ></p>
+
+    <p *ngIf="errors.hasOwnProperty('qty')" class="errors">{{ errors.qty.message }}</p>
+    <p *ngIf="!qty.valid" class="ng_errors">*Enter valid Quanity</p>
+    <p>Qty: <input type="text" name="newProduct.qty" required minlength="0" [(ngModel)]="newProduct.qty" #qty="ngModel"></p>
+    
+    <p *ngIf="errors.hasOwnProperty('price')" class="errors">{{ errors.price.message }}</p>
+    <p *ngIf="!price.valid" class="ng_errors">*Enter valid Price</p>
+    <p>Price: <input type="text" name="newProduct.price" required minlength="0" [(ngModel)]="newProduct.price" #price="ngModel"></p>
+
+    <button type="button" [routerLink]="['/products']" >Reset</button> <button type="submit" style="margin-left: 20px" *ngIf="name.valid && qty.valid && price.valid">Create</button> 
+</form>

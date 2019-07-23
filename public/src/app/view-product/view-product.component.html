@@ -1,0 +1,7 @@
+<h2>Product Details</h2>
+
+<p>Name: {{product.name}}</p>
+<p>Qty: {{product.qty}}</p>
+<p>Price: ${{product.price}}</p>
+
+<button [routerLink]="['/products']">Back</button> <button (click) = toDelete() style="margin-left: 30px" *ngIf="product.qty == 0">Delete</button>

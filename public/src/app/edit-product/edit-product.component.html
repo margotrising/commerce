@@ -1,0 +1,21 @@
+<h2>Update Product</h2>
+
+
+<form (submit)=handleSubmit()>
+        <!-- {{product | json}} -->
+
+    <p *ngIf="errors.hasOwnProperty('name')" class="errors">{{ errors.name.message }}</p>
+    <p *ngIf="!name.valid" class="ng_errors">*Enter valid Product Name</p>
+
+    <p>Name: <input type="text" name="product.name" required minlength="3" [(ngModel)]="product.name" #name="ngModel" ></p>
+    
+    <p *ngIf="errors.hasOwnProperty('qty')" class="errors">{{ errors.qty.message }}</p>
+    <p *ngIf="!qty.valid" class="ng_errors">*Enter valid Quanity</p>
+    <p>Qty: <input type="text" name="product.qty" required minlength="0" [(ngModel)]="product.qty" #qty="ngModel"></p>
+    
+    <p *ngIf="errors.hasOwnProperty('price')" class="errors">{{ errors.price.message }}</p>
+    <p *ngIf="!price.valid" class="ng_errors">*Enter valid Price</p>
+    <p>Price: <input type="text" name="product.price" required minlength="0" [(ngModel)]="product.price" #price="ngModel"></p>
+
+    <button type="button" (click)="reset()" >Reset</button> <button type="submit" style="margin-left: 20px" *ngIf="name.valid && qty.valid && price.valid">Update</button> 
+</form>
